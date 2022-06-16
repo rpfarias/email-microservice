@@ -1,5 +1,6 @@
 package com.ms.email.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ms.email.enums.StatusEmail;
 import lombok.Data;
 
@@ -11,12 +12,12 @@ import java.util.UUID;
 @Entity
 @Table(name = "TB_EMAIL")
 public class EmailModel {
-
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private UUID emailId;
+
     private String ownerRef;
     private String emailFrom;
     private String emailTo;
@@ -24,6 +25,9 @@ public class EmailModel {
 
     @Column(columnDefinition = "TEXT")
     private String text;
+
+    @JsonFormat(pattern = "dd/MM/yyyy hh:mm")
     private LocalDateTime sendDateEmail;
+
     private StatusEmail statusEmail;
 }
