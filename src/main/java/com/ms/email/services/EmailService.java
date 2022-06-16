@@ -21,6 +21,7 @@ public class EmailService {
     @Autowired
     EmailRepository emailRepository;
 
+    @Autowired
     private JavaMailSender emailSender;
 
     public EmailModel sendEmail(EmailModel emailModel) {
